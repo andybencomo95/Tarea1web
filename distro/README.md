@@ -39,14 +39,44 @@ Variables CSS (:root):
 --border-color: #e2e8f0 (Color de bordes)
 ```
 
-### Características Principales
-1. **Diseño Responsivo Mobile-First**
-   - Grid system adaptativo para productos (140px -> 200px -> 250px)
-   - Layout flexible que prioriza la experiencia móvil
+### Sistema de Layout
+1. **CSS Grid**
+   - Usado en la sección de productos (.products)
+   ```css
+   .products {
+       display: grid;
+       grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+       gap: 1rem;
+   }
+   ```
+   - Grid responsivo que se ajusta automáticamente
+   - Columnas adaptativas usando minmax()
+   - Diferentes tamaños según el viewport:
+     * Móvil: minmax(140px, 1fr)
+     * Tablet: minmax(200px, 1fr)
+     * Desktop: minmax(250px, 1fr)
+
+2. **Flexbox**
+   - Usado en múltiples componentes:
+     * Layout principal (main): flex-direction cambia de column a row en desktop
+     * Header: justify-content: space-between para logo y carrito
+     * Filtros: flex con scroll horizontal en móvil
+     * Items del carrito: flex para alinear imagen, info y controles
+     * Controles de cantidad: flex para alineación de botones
+   - Propiedades principales:
+     * display: flex
+     * justify-content
+     * align-items
+     * flex-direction
+     * gap
+     * flex-wrap
+
+3. **Diseño Responsivo Mobile-First**
+   - Combinación de Grid y Flexbox para layout adaptativo
    - Media queries para tablets (480px) y desktop (768px)
    - Ajustes específicos para cada tamaño de pantalla
 
-2. **Optimizaciones Móviles**
+4. **Optimizaciones Móviles**
    - Filtros con scroll horizontal en móvil
    - Botones y controles más grandes para mejor interacción táctil
    - Manejo de texto con ellipsis para evitar desbordamiento
