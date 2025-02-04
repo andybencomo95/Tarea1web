@@ -12,42 +12,42 @@ let currentCategory = 'all';
 const products = [
     { 
         id: 1, 
-        name: 'Smart Watch Pro', 
+        name: 'Reloj Inteligente Pro', 
         price: 199.99, 
         category: 'electronics',
         image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400' 
     },
     { 
         id: 2, 
-        name: 'Casual Denim Jacket', 
+        name: 'Chaqueta de Mezclilla', 
         price: 89.99, 
         category: 'clothing',
         image: 'https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=400' 
     },
     { 
         id: 3, 
-        name: 'Wireless Earbuds', 
+        name: 'Auriculares Inalámbricos', 
         price: 129.99, 
         category: 'electronics',
         image: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=400' 
     },
     { 
         id: 4, 
-        name: 'Leather Backpack', 
+        name: 'Mochila de Cuero', 
         price: 79.99, 
         category: 'accessories',
-        image: 'https://images.unsplash.com/photo-1548546738-8509cb246ed3?w=400' 
+        image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400' 
     },
     { 
         id: 5, 
-        name: 'Premium Sneakers', 
+        name: 'Zapatillas Premium', 
         price: 149.99, 
         category: 'clothing',
         image: 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400' 
     },
     { 
         id: 6, 
-        name: 'Stylish Sunglasses', 
+        name: 'Gafas de Sol Elegantes', 
         price: 59.99, 
         category: 'accessories',
         image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400' 
@@ -78,7 +78,7 @@ function renderProducts() {
             <h3>${product.name}</h3>
             <p class="price">$${product.price.toFixed(2)}</p>
             <button onclick="addToCart(${product.id})">
-                <i class="fas fa-shopping-cart"></i> Add to Cart
+                <i class="fas fa-shopping-cart"></i> Agregar al Carrito
             </button>
         `;
         productsSection.appendChild(productDiv);
@@ -143,11 +143,11 @@ function renderCartItems() {
                 </div>
             </div>
             <div class="quantity-controls">
-                <button class="quantity-btn" onclick="updateQuantity(${product.id}, -1)">
+                <button class="quantity-btn" onclick="updateQuantity(${product.id}, -1)" aria-label="Disminuir cantidad">
                     <i class="fas fa-minus"></i>
                 </button>
                 <span class="quantity">${quantity}</span>
-                <button class="quantity-btn" onclick="updateQuantity(${product.id}, 1)">
+                <button class="quantity-btn" onclick="updateQuantity(${product.id}, 1)" aria-label="Aumentar cantidad">
                     <i class="fas fa-plus"></i>
                 </button>
             </div>
@@ -172,11 +172,11 @@ function updateTotalPrice() {
 
 checkoutBtn.addEventListener('click', () => {
     if (cart.length > 0) {
-        alert('Thank you for your purchase! Your order has been placed.');
+        alert('¡Gracias por tu compra! Tu pedido ha sido realizado.');
         cart = [];
         updateCart();
     } else {
-        alert('Your cart is empty. Please add some items before checking out.');
+        alert('Tu carrito está vacío. Por favor, agrega algunos productos antes de finalizar la compra.');
     }
 });
 
