@@ -163,7 +163,7 @@ function updateCartCount() {
 
 function updateTotalPrice() {
     const subtotal = cart.reduce((sum, {product, quantity}) => sum + (product.price * quantity), 0);
-    const tax = subtotal * 0.10; // 10% tax
+    const tax = subtotal * 0.19; // 19% tax
     const total = subtotal + tax;
     
     subtotalPriceSpan.textContent = subtotal.toFixed(2);
